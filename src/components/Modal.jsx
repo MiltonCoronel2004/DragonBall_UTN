@@ -18,6 +18,9 @@ export function Modal({ children, setSelected, selected, gif, sound }) {
       case "/sounds/Gohan.mp3":
         audioRef.current.currentTime = 22.1;
 
+      case "/sounds/Krillin.mp3":
+        audioRef.current.currentTime = 0.5;
+
       default:
         break;
     }

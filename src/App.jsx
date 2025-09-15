@@ -13,25 +13,29 @@ import Piccolo from "/gifs/Piccolo.gif";
 import Bulma from "/gifs/Bulma.gif";
 import Gohan from "/gifs/Gohan.gif";
 import Whis from "/gifs/Whis.gif";
-// import Freezer from "../public/gifs/Freezer.gif";
+import Freezer from "/gifs/Freezer.gif";
+import Krillin from "/gifs/Krillin.gif";
 
 import GokuSound from "/sounds/Goku.mp3";
 import BulmaSound from "/sounds/Bulma.mp3";
 import VegetaSound from "/sounds/Vegeta.mp3";
-// import WhisSound from "/sounds/Whis.mp3";
+import WhisSound from "/sounds/Whis.mp3";
 import FreezerSound from "/sounds/Freezer.mp3";
 import BrolySound from "/sounds/Broly.mp3";
 import PiccoloSound from "/sounds/Piccolo.mp3";
 import GohanSound from "/sounds/Gohan.mp3";
+import KrillinSound from "/sounds/Krillin.mp3";
+
 const sounds = {
   Goku: GokuSound,
   Bulma: BulmaSound,
   Vegeta: VegetaSound,
-  // Whis: WhisSound,
+  Whis: WhisSound,
   Freezer: FreezerSound,
   Broly: BrolySound,
   Piccolo: PiccoloSound,
   Gohan: GohanSound,
+  Krillin: KrillinSound,
 };
 
 const gifs = {
@@ -42,7 +46,8 @@ const gifs = {
   Bulma,
   Gohan,
   Whis,
-  // Freezer,
+  Freezer,
+  Krillin,
 };
 
 function App() {
