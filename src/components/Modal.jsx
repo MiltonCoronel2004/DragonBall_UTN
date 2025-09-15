@@ -4,9 +4,25 @@ import { useEffect, useRef } from "react";
 export function Modal({ children, setSelected, selected, gif, sound }) {
   const audioRef = useRef(null);
   const reproducir = () => {
-    if (audioRef.current) {
-      audioRef.current.play();
+    switch (sound) {
+      case "/sounds/Broly.mp3":
+        audioRef.current.currentTime = 80.5;
+
+        break;
+      case "/sounds/Piccolo.mp3":
+        audioRef.current.currentTime = 2;
+
+      case "/sounds/Freezer.mp3":
+        audioRef.current.currentTime = 0;
+
+      case "/sounds/Gohan.mp3":
+        audioRef.current.currentTime = 22.1;
+
+      default:
+        break;
     }
+    audioRef.current.volume = 0.15;
+    audioRef.current.play();
   };
 
   useEffect(() => {
@@ -15,7 +31,7 @@ export function Modal({ children, setSelected, selected, gif, sound }) {
     setTimeout(() => {
       audioRef.current.pause();
       audioRef.current.currentTime = 0;
-    }, 20000);
+    }, 60000);
   }, []);
   return (
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50" onClick={() => setSelected(false)}>

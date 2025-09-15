@@ -26,7 +26,7 @@ export function Tarjeta({ character, setSelected }) {
   return (
     <div className="w-64 bg-gray-800 rounded-lg overflow-hidden shadow-lg" onClick={() => setSelected(character)}>
       <div className="bg-gradient-to-br from-gray-300 to-gray-400 p-8 flex items-center justify-center">
-        <img src={character.image} className="h-80 w-auto object-contain transition-transform duration-300 hover:scale-105 cursor-pointer" />
+        <img src={character.image} className="h-80 w-auto object-contain transition-transform duration-300 hover:scale-115 cursor-pointer" />
       </div>
 
       <div className="p-4 text-white">

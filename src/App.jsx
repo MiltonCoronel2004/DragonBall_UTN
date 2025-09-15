@@ -6,27 +6,43 @@ import { SearchBar } from "./components/SearchBar";
 import { Modal } from "./components/Modal";
 
 // Gifs
-import Goku from "../public/gifs/Goku.gif";
-import Vegeta from "../public/gifs/Vegeta.gif";
-import Freezer from "../public/gifs/Freezer.gif";
+import Goku from "/gifs/Goku.gif";
+import Vegeta from "/gifs/Vegeta.gif";
+import Broly from "/gifs/Broly.gif";
+import Piccolo from "/gifs/Piccolo.gif";
+import Bulma from "/gifs/Bulma.gif";
+import Gohan from "/gifs/Gohan.gif";
+import Whis from "/gifs/Whis.gif";
+// import Freezer from "../public/gifs/Freezer.gif";
 
-import GokuSound from "../public/sounds/Goku.mp3";
-import BulmaSound from "../public/sounds/Bulma.mp3";
-import VegetaSound from "../public/sounds/Vegeta.mp3";
-import WhisSound from "../public/sounds/Whis.mp3";
-import FreezerSound from "../public/sounds/Freezer.mp3";
+import GokuSound from "/sounds/Goku.mp3";
+import BulmaSound from "/sounds/Bulma.mp3";
+import VegetaSound from "/sounds/Vegeta.mp3";
+// import WhisSound from "/sounds/Whis.mp3";
+import FreezerSound from "/sounds/Freezer.mp3";
+import BrolySound from "/sounds/Broly.mp3";
+import PiccoloSound from "/sounds/Piccolo.mp3";
+import GohanSound from "/sounds/Gohan.mp3";
 const sounds = {
   Goku: GokuSound,
   Bulma: BulmaSound,
   Vegeta: VegetaSound,
-  Whis: WhisSound,
+  // Whis: WhisSound,
   Freezer: FreezerSound,
+  Broly: BrolySound,
+  Piccolo: PiccoloSound,
+  Gohan: GohanSound,
 };
 
 const gifs = {
   Goku,
   Vegeta,
-  Freezer,
+  Broly,
+  Piccolo,
+  Bulma,
+  Gohan,
+  Whis,
+  // Freezer,
 };
 
 function App() {
@@ -43,9 +59,14 @@ function App() {
     })();
   }, []);
 
-  const filtered = characters.filter(
-    (c) => c.name.toLowerCase().includes(search.toLowerCase()) && (affiliationFilter === "All" || c.affiliation === affiliationFilter)
-  );
+  const filtered = characters.filter((c) => {
+    const matchesSearch = c.name.toLowerCase().includes(search.toLowerCase());
+
+    const matchesAffiliation =
+      affiliationFilter === "All" ? true : affiliationFilter === "Has Sound" ? !!sounds[c.name] : c.affiliation === affiliationFilter;
+
+    return matchesSearch && matchesAffiliation;
+  });
 
   if (isLoading)
     return (
@@ -70,6 +91,7 @@ function App() {
               "Assistant of Vermoud",
               "Assistant of Beerus",
               "Freelancer",
+              "Has Sound",
             ].map((aff) => (
               <label key={aff} className="btn">
                 <input type="radio" name="affiliation" checked={affiliationFilter === aff} onChange={() => setAffiliationFilter(aff)} />
