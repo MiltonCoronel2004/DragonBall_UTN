@@ -55,6 +55,7 @@ function App() {
   useEffect(() => {
     (async () => {
       setCharacters(await getAllCharacters());
+      console.log(await getAllCharacters());
       setIsLoading(false);
     })();
   }, []);
